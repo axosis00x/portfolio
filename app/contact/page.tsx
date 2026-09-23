@@ -15,7 +15,6 @@ import {
   FiGithub as Github,
   FiLinkedin as Linkedin,
   FiInstagram as Instagram,
-  FiFacebook as Facebook,
 } from "react-icons/fi";
 import { useSeo } from "@/lib/seo";
 
@@ -113,13 +112,6 @@ const Contact = () => {
       label: "Instagram",
       handle: "@frgnc.subash",
       color: "group-hover:text-[#E4405F]",
-    },
-    {
-      icon: Facebook,
-      href: "https://facebook.com/frgnc.subash",
-      label: "Facebook",
-      handle: "Subash Lama Tamang",
-      color: "group-hover:text-[#1877F2]",
     },
   ];
 

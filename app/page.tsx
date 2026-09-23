@@ -158,7 +158,7 @@ function Profile() {
   const bioParagraph = (
     <p className="font-mono text-base sm:text-lg font-normal leading-relaxed text-gray-600 dark:text-gray-400 w-full text-left">
       I'm Subash and I am from{" "}
-      <strong className="font-semibold text-black dark: text-white">
+      <strong className="font-semibold text-black dark:text-white">
         Kathmandu, Nepal
       </strong>
       . I am an undegrad aspiring FullStack Web Developer and Software Engineer.
