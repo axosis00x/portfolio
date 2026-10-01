@@ -4,7 +4,7 @@ Personal portfolio and blog of **Subash Lama Tamang**, a full-stack developer an
 
 **Live:** [subashlamatamang.com.np](https://subashlamatamang.com.np)
 
-![Portfolio preview](public/projects/portfolio-preview.png)
+![Portfolio preview](public/projects/portfolio-prev.png)
 
 ## Features
 

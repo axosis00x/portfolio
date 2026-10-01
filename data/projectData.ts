@@ -11,7 +11,7 @@ export const PROJECTS: Project[] = [
     tech: ["React", "TypeScript", "2D Graph", "Tailwind"],
     link: "https://subashlamatamang.com.np",
     github: "https://github.com/frgnc-subash/portfolio",
-    image: "/projects/portfolio-preview.png",
+    image: "/projects/portfolio-prev.png",
     isFeatured: true,
   },
   {
