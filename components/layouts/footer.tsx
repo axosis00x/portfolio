@@ -1,4 +1,4 @@
-import { FiGithub, FiInstagram, FiLinkedin, FiFacebook } from "react-icons/fi";
+import { FiGithub, FiInstagram, FiLinkedin, FiMail } from "react-icons/fi";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -38,13 +38,11 @@ const Footer = () => {
             <FiLinkedin size={20} />
           </a>
           <a
-            href="https://facebook.com/frgnc.subash"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Facebook"
+            href="mailto:info@subashlamatamang.com.np"
+            aria-label="Email"
             className={iconClass}
           >
-            <FiFacebook size={20} />
+            <FiMail size={20} />
           </a>
         </div>
 
