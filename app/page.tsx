@@ -426,52 +426,71 @@ function AboutHighlights() {
   );
 }
 
-// Pixel-art arrow for the scroll hint, one character per pixel.
+// Pixel-art arrow for the scroll hint, one character per pixel ("#" is filled).
+// It sweeps right and down from the text, pointing at the content below.
 const SCROLL_ARROW = [
-  "..#...........",
-  "..#...........",
-  "..#...........",
-  "..#...........",
-  "..#...........",
-  "...#..........",
-  "...#..........",
-  "....#.........",
-  ".....#....#...",
-  "......#....#..",
-  ".......######.",
-  "...........#..",
-  "..........#...",
+  "###.........",
+  "...##.......",
+  ".....##.....",
+  ".......#....",
+  "........#...",
+  "........#...",
+  ".........#..",
+  ".........#..",
+  ".........#..",
+  ".........#..",
+  ".......#.#.#",
+  "........###.",
+  ".........#..",
 ];
+
+function PixelArt({
+  grid,
+  scale,
+  className,
+  style,
+}: {
+  grid: string[];
+  scale: number;
+  className?: string;
+  style?: React.CSSProperties;
+}) {
+  return (
+    <svg
+      width={grid[0].length * scale}
+      height={grid.length * scale}
+      viewBox={`0 0 ${grid[0].length} ${grid.length}`}
+      fill="currentColor"
+      shapeRendering="crispEdges"
+      className={className}
+      style={style}
+      aria-hidden="true"
+    >
+      {grid.flatMap((row, y) =>
+        [...row].map((cell, x) =>
+          cell === "#" ? (
+            <rect key={`${x}-${y}`} x={x} y={y} width="1" height="1" />
+          ) : null,
+        ),
+      )}
+    </svg>
+  );
+}
 
 function ScrollHint() {
   return (
-    <div className="flex flex-col items-center gap-1 text-gray-600 select-none dark:text-gray-300">
-      <svg
-        width={SCROLL_ARROW[0].length * 5}
-        height={SCROLL_ARROW.length * 5}
-        viewBox={`0 0 ${SCROLL_ARROW[0].length} ${SCROLL_ARROW.length}`}
-        fill="currentColor"
-        shapeRendering="crispEdges"
+    <div className="flex items-start justify-center gap-2 text-gray-600 select-none dark:text-gray-300">
+      <span className="doodle-shake inline-block font-pixel text-2xl sm:text-3xl leading-tight">
+        hey,
+        <br />
+        there&apos;s more.
+      </span>
+      <PixelArt
+        grid={SCROLL_ARROW}
+        scale={5}
+        className="doodle-shake mt-8 sm:mt-10"
         style={{ animationDelay: "-0.32s" }}
-        className="doodle-shake self-start ml-4 sm:ml-12"
-        aria-hidden="true"
-      >
-        {SCROLL_ARROW.flatMap((row, y) =>
-          [...row].map((cell, x) =>
-            cell === "#" ? (
-              <rect key={`${x}-${y}`} x={x} y={y} width="1" height="1" />
-            ) : null,
-          ),
-        )}
-      </svg>
-
-      <div className="flex items-center gap-3 -mt-2">
-        <span className="doodle-shake inline-block font-pixel text-2xl sm:text-3xl leading-tight text-center">
-          hey
-          <br />
-          there&apos;s more.
-        </span>
-      </div>
+      />
     </div>
   );
 }
@@ -511,7 +530,7 @@ export default function HomePage() {
     <div className="max-w-2xl mx-auto py-8 sm:py-12">
       <section className="w-full flex flex-col pt-4 sm:pt-6 min-h-[calc(100vh-260px)] sm:min-h-[calc(100vh-160px)]">
         <Profile />
-        <div className="mt-8 sm:mt-12">
+        <div className="mt-16 sm:mt-24">
           <ScrollHint />
         </div>
       </section>
