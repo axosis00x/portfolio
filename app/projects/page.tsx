@@ -41,9 +41,9 @@ export default function ProjectsPage() {
         {PROJECTS.map((project, index) => (
           <article
             key={project.id}
-            className="group relative flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white transition-all hover:border-gray-300 hover:shadow-sm dark:border-[#323437] dark:bg-[#080808] dark:hover:border-gray-600"
+            className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-300 bg-white shadow-[3px_3px_0_0_rgba(0,0,0,0.06)] dark:shadow-[3px_3px_0_0_rgba(255,255,255,0.04)] transition-colors hover:border-gray-400 dark:border-[#3a3a3c] dark:bg-[#0a0a0a] dark:hover:border-gray-600"
           >
-            <div className="relative aspect-[16/9] w-full overflow-hidden border-b border-gray-200 bg-[#111214] dark:border-[#323437]">
+            <div className="relative aspect-[16/9] w-full overflow-hidden border-b border-gray-300 bg-[#111214] dark:border-[#3a3a3c]">
               <Image
                 src={project.image ?? "/preview.svg"}
                 alt={`${project.title} project preview`}
@@ -89,7 +89,7 @@ export default function ProjectsPage() {
                   (project.sourceDisabled ? (
                     <span
                       aria-disabled="true"
-                      className="inline-flex cursor-not-allowed items-center gap-2 rounded-md border border-gray-200 px-3.5 py-2 text-sm font-medium text-gray-400 opacity-60 dark:border-[#3d3f43] dark:text-gray-500"
+                      className="inline-flex cursor-not-allowed items-center gap-2 rounded-md border border-gray-200 px-3.5 py-2 text-sm font-medium text-gray-400 opacity-60 dark:border-[#3a3a3c] dark:text-gray-500"
                     >
                       <Github size={16} />
                       Source
@@ -99,7 +99,7 @@ export default function ProjectsPage() {
                       href={project.github}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 rounded-md border border-gray-200 px-3.5 py-2 text-sm font-medium text-gray-700 transition-colors hover:border-gray-300 hover:bg-gray-50 dark:border-[#3d3f43] dark:text-[#e4e4e4] dark:hover:bg-[#1e1e1e]"
+                      className="inline-flex items-center gap-2 rounded-md border border-gray-200 px-3.5 py-2 text-sm font-medium text-gray-700 transition-colors hover:border-gray-300 hover:bg-gray-50 dark:border-[#3a3a3c] dark:text-[#e4e4e4] dark:hover:bg-[#1e1e1e]"
                     >
                       <Github size={16} />
                       Source

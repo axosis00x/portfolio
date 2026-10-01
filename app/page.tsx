@@ -52,44 +52,21 @@ function PfpImage({
   );
 }
 
-function PolaroidPfp({
-  isHovered,
-  onHoverStart,
-  onHoverEnd,
-}: {
-  isHovered: boolean;
-  onHoverStart: () => void;
-  onHoverEnd: () => void;
-}) {
+function ProfileCard() {
   return (
-    <div
-      className="hidden sm:block shrink-0 group cursor-pointer"
-      onMouseEnter={onHoverStart}
-      onMouseLeave={onHoverEnd}
-    >
-      <div
-        className={`w-52 rounded-sm border border-gray-200 bg-white p-2 pb-4 shadow-lg shadow-black/10 transition-transform duration-300 ease-out dark:border-[#323437] dark:bg-[#111113] dark:shadow-black/50 ${
-          isHovered ? "-translate-y-1 rotate-0" : "rotate-[-4deg]"
-        }`}
-      >
+    <div className="hidden sm:block shrink-0 group">
+      <div className="w-52 rounded-lg border border-gray-300 bg-white p-2 shadow-[3px_3px_0_0_rgba(0,0,0,0.06)] transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:border-(--accent-brand) group-hover:shadow-[4px_4px_0_0_var(--accent-brand)] dark:border-[#3a3a3c] dark:bg-[#0a0a0a] dark:shadow-[3px_3px_0_0_rgba(255,255,255,0.04)]">
         <PfpImage
           size={208}
-          className="aspect-square w-full overflow-hidden rounded-[2px] bg-gray-100 dark:bg-white/5"
-          imgClassName={`w-full h-full object-cover grayscale transition-all duration-500 ease-in-out ${isHovered ? "grayscale-0" : ""}`}
+          className="aspect-square w-full overflow-hidden rounded-md bg-gray-50 dark:bg-[#1e1e1e]"
+          imgClassName="w-full h-full object-cover grayscale transition-all duration-500 ease-in-out group-hover:grayscale-0"
         />
-        <div className="mt-2 flex items-center justify-center gap-1.5">
-          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-green-500" />
-          <span className="text-[10px] font-semibold tracking-wide text-gray-700 dark:text-gray-300">
-            status: online
-          </span>
-        </div>
       </div>
     </div>
   );
 }
 
 function Profile() {
-  const [isPfpHovered, setIsPfpHovered] = useState(false);
   const [time, setTime] = useState<string>("");
 
   useEffect(() => {
@@ -157,7 +134,7 @@ function Profile() {
 
   const bioParagraph = (
     <p className="font-mono text-base sm:text-lg font-normal leading-relaxed text-gray-600 dark:text-gray-400 w-full text-left">
-      I'm Subash and I am from{" "}
+      I&apos;m Subash and I am from{" "}
       <strong className="font-semibold text-black dark:text-white">
         Kathmandu, Nepal
       </strong>
@@ -170,17 +147,12 @@ function Profile() {
     <div className="w-full max-w-2xl mx-auto mb-8 transition-colors duration-300">
       <div className="sm:hidden">
         <div className="flex items-center gap-4 mb-5">
-          <div
-            className="shrink-0 relative group cursor-pointer"
-            onMouseEnter={() => setIsPfpHovered(true)}
-            onMouseLeave={() => setIsPfpHovered(false)}
-          >
+          <div className="shrink-0 group">
             <PfpImage
               size={80}
-              className="w-16 h-16 rounded-full overflow-hidden border-2 border-gray-100 dark:border-[#323437] shadow-sm transition-transform duration-300 ease-out group-hover:scale-105"
+              className="w-16 h-16 rounded-lg overflow-hidden border border-gray-300 bg-gray-50 p-1 shadow-[2px_2px_0_0_rgba(0,0,0,0.06)] dark:border-[#3a3a3c] dark:bg-[#0a0a0a] dark:shadow-[2px_2px_0_0_rgba(255,255,255,0.04)]"
               imgClassName="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 ease-in-out"
             />
-            <div className="absolute bottom-1 right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white dark:border-[#080808]" />
           </div>
 
           <div className="flex flex-col justify-center min-w-0">
@@ -195,11 +167,7 @@ function Profile() {
       </div>
 
       <div className="hidden sm:flex sm:items-start sm:gap-8">
-        <PolaroidPfp
-          isHovered={isPfpHovered}
-          onHoverStart={() => setIsPfpHovered(true)}
-          onHoverEnd={() => setIsPfpHovered(false)}
-        />
+        <ProfileCard />
 
         <div className="flex-1 min-w-0 space-y-3">
           <div>{nameTagline}</div>
@@ -444,9 +412,7 @@ function AboutHighlights() {
       </div>
       <div className={`${cardClass} mt-4`}>
         <p className="font-mono text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">
-          <span
-            style={{ fontFamily: "'Tiny5', sans-serif" }}
-            className="text-black dark:text-white text-lg tracking-wide inline-block"
+          <span className="font-pixel text-black dark:text-white text-lg tracking-wide inline-block"
           >
             axosis
           </span>{" "}
@@ -460,57 +426,47 @@ function AboutHighlights() {
   );
 }
 
+// Pixel-art arrow for the scroll hint, one character per pixel.
+const SCROLL_ARROW = [
+  "..#...........",
+  "..#...........",
+  "..#...........",
+  "..#...........",
+  "..#...........",
+  "...#..........",
+  "...#..........",
+  "....#.........",
+  ".....#....#...",
+  "......#....#..",
+  ".......######.",
+  "...........#..",
+  "..........#...",
+];
+
 function ScrollHint() {
   return (
-    <div className="flex flex-col items-center gap-1 text-gray-500 select-none dark:text-gray-400">
-      <svg width="0" height="0" aria-hidden="true">
-        {/* Hand-drawn "line boil": high-frequency noise displaces the strokes,
-            and the seed hops every few frames so the lines jitter like a doodle. */}
-        <filter id="squiggle" x="-20%" y="-20%" width="140%" height="140%">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.045"
-            numOctaves="2"
-            seed="1"
-            result="noise"
-          >
-            <animate
-              attributeName="seed"
-              dur="0.48s"
-              values="1;2;3;4;5;6"
-              calcMode="discrete"
-              repeatCount="indefinite"
-            />
-          </feTurbulence>
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" />
-        </filter>
-      </svg>
-
+    <div className="flex flex-col items-center gap-1 text-gray-600 select-none dark:text-gray-300">
       <svg
-        width="76"
-        height="92"
-        viewBox="0 0 90 110"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        style={{ filter: "url(#squiggle)" }}
-        className="self-start ml-4 sm:ml-12"
+        width={SCROLL_ARROW[0].length * 5}
+        height={SCROLL_ARROW.length * 5}
+        viewBox={`0 0 ${SCROLL_ARROW[0].length} ${SCROLL_ARROW.length}`}
+        fill="currentColor"
+        shapeRendering="crispEdges"
+        style={{ animationDelay: "-0.32s" }}
+        className="doodle-shake self-start ml-4 sm:ml-12"
         aria-hidden="true"
       >
-        <path d="M22 8 C 20 50, 40 80, 75 90" />
-        <path d="M60 75 L75 90 L55 105" />
+        {SCROLL_ARROW.flatMap((row, y) =>
+          [...row].map((cell, x) =>
+            cell === "#" ? (
+              <rect key={`${x}-${y}`} x={x} y={y} width="1" height="1" />
+            ) : null,
+          ),
+        )}
       </svg>
 
       <div className="flex items-center gap-3 -mt-2">
-        <span
-          style={{
-            fontFamily: "var(--font-handwriting)",
-            filter: "url(#squiggle)",
-          }}
-          className="-rotate-1 text-2xl sm:text-3xl leading-tight text-center"
-        >
+        <span className="doodle-shake inline-block font-pixel text-2xl sm:text-3xl leading-tight text-center">
           hey
           <br />
           there&apos;s more.

@@ -19,8 +19,7 @@ export default function Loading({ className = "" }: { className?: string }) {
 
       <div className="flex flex-col items-center gap-4 select-none" aria-hidden="true">
         <span
-          style={{ fontFamily: "'Tiny5', sans-serif" }}
-          className="text-3xl tracking-wide text-black dark:text-[#eeeeee]"
+          className="font-pixel text-3xl tracking-wide text-black dark:text-[#e4e4e4]"
         >
           axosis
           <span className="loader-cursor text-(--accent-brand)">_</span>

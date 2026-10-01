@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { Caveat, Roboto_Condensed } from "next/font/google";
+import { Roboto_Condensed, Tiny5 } from "next/font/google";
 import SiteShell from "@/components/layouts/site-shell";
 import { IntroLoader } from "./loading";
 import "./globals.css";
 
-const handwriting = Caveat({
+const pixel = Tiny5({
   subsets: ["latin"],
-  weight: ["600"],
-  variable: "--font-handwriting",
+  weight: "400",
+  variable: "--font-tiny5",
 });
 
 const robotoCondensed = Roboto_Condensed({
@@ -42,20 +42,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`h-full ${handwriting.variable} ${robotoCondensed.variable}`}
+      className={`h-full ${pixel.variable} ${robotoCondensed.variable}`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap"
-          rel="stylesheet"
-        />
       </head>
       <body className="min-h-full flex flex-col">
         <IntroLoader />

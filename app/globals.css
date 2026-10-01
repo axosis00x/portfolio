@@ -5,6 +5,7 @@
 
 @theme {
     --font-mono: var(--font-roboto-condensed), Arial Narrow, sans-serif;
+    --font-pixel: var(--font-tiny5), monospace;
 }
 
 :root {
@@ -122,6 +123,23 @@ textarea::placeholder {
     .loader-cursor {
         animation: none;
         opacity: 1;
+    }
+}
+
+/* Scroll hint arrow and text on the home page: hop between 1px offsets a few times a
+   second so the pixel art shakes without blurring. */
+.doodle-shake {
+    animation: doodle-shake 0.64s steps(1, end) infinite;
+}
+@keyframes doodle-shake {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(1px, -1px); }
+    50% { transform: translate(-1px, 0); }
+    75% { transform: translate(0, 1px); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .doodle-shake {
+        animation: none;
     }
 }
 

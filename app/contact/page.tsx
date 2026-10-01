@@ -129,11 +129,10 @@ const Contact = () => {
       </div>
 
       <div className="flex flex-col gap-10 px-4 sm:px-0">
-        <section className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-300 hover:border-gray-300 hover:shadow-md dark:border-[#323437] dark:bg-[#080808] dark:hover:border-[#4a4d52]">
-          <div className="absolute -right-12 -top-16 h-40 w-40 rounded-full bg-blue-500/10 blur-3xl transition-opacity duration-500 group-hover:opacity-100 dark:bg-violet-400/10" />
+        <section className="group relative overflow-hidden rounded-lg border border-gray-300 bg-white p-5 shadow-[3px_3px_0_0_rgba(0,0,0,0.06)] dark:shadow-[3px_3px_0_0_rgba(255,255,255,0.04)] transition-colors duration-300 hover:border-gray-400 dark:border-[#3a3a3c] dark:bg-[#0a0a0a] dark:hover:border-gray-600">
           <div className="relative flex items-start justify-between gap-4">
             <div className="flex min-w-0 items-center gap-4">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-gray-700 transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-105 dark:border-[#323437] dark:bg-[#1e1e1e] dark:text-gray-200">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-50 text-gray-700 dark:border-[#3a3a3c] dark:bg-[#1e1e1e] dark:text-gray-200">
                 <Mail size={19} />
               </div>
               <div className="min-w-0">
@@ -151,12 +150,12 @@ const Contact = () => {
             <button
               onClick={handleCopy}
               aria-label="Copy email address"
-              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-gray-600 transition-all hover:border-black hover:bg-black hover:text-white dark:border-[#323437] dark:bg-[#1e1e1e] dark:text-gray-300 dark:hover:border-[#e4e4e4] dark:hover:bg-[#e4e4e4] dark:hover:text-black"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-50 text-gray-600 transition-all hover:border-black hover:bg-black hover:text-white dark:border-[#3a3a3c] dark:bg-[#1e1e1e] dark:text-gray-300 dark:hover:border-[#e4e4e4] dark:hover:bg-[#e4e4e4] dark:hover:text-black"
             >
               {copied ? <Check size={17} /> : <Copy size={17} />}
             </button>
           </div>
-          <div className="relative mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-gray-100 pt-4 text-xs dark:border-[#1e1e1e]">
+          <div className="relative mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-gray-200 pt-4 text-xs dark:border-[#3a3a3c]">
             <span className="text-gray-500 dark:text-gray-400">
               {copied
                 ? "Email copied to clipboard"
@@ -182,10 +181,10 @@ const Contact = () => {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between p-4 rounded-xl border border-gray-200 dark:border-[#323437] bg-white dark:bg-[#080808] hover:bg-gray-50 dark:hover:bg-[#1e1e1e] transition-all duration-300"
+                className="group flex items-center justify-between p-4 rounded-lg border border-gray-300 dark:border-[#3a3a3c] bg-white dark:bg-[#0a0a0a] shadow-[3px_3px_0_0_rgba(0,0,0,0.06)] dark:shadow-[3px_3px_0_0_rgba(255,255,255,0.04)] hover:border-gray-400 dark:hover:border-gray-600 transition-colors duration-300"
               >
                 <div className="flex items-center gap-4">
-                  <div className="p-2 rounded-lg bg-gray-50 dark:bg-[#1e1e1e] border border-transparent group-hover:border-gray-200 dark:group-hover:border-[#323437]">
+                  <div className="p-2 rounded-md bg-gray-50 dark:bg-[#1e1e1e] border border-gray-300 dark:border-[#3a3a3c]">
                     <Icon
                       size={20}
                       className={`text-gray-500 dark:text-gray-400 transition-colors duration-300 ${color}`}
@@ -224,7 +223,7 @@ const Contact = () => {
                   setErrorMessage("");
                   setFormState({ ...formState, name: e.target.value });
                 }}
-                className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-[#080808] border border-gray-200 dark:border-[#323437] focus:border-black dark:focus:border-[#e4e4e4] outline-none transition-all text-sm"
+                className="w-full px-4 py-3 rounded-md bg-white dark:bg-[#0a0a0a] border border-gray-300 dark:border-[#3a3a3c] focus:border-black dark:focus:border-[#e4e4e4] outline-none transition-all text-sm"
               />
               <input
                 type="email"
@@ -235,7 +234,7 @@ const Contact = () => {
                   setErrorMessage("");
                   setFormState({ ...formState, email: e.target.value });
                 }}
-                className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-[#080808] border border-gray-200 dark:border-[#323437] focus:border-black dark:focus:border-[#e4e4e4] outline-none transition-all text-sm"
+                className="w-full px-4 py-3 rounded-md bg-white dark:bg-[#0a0a0a] border border-gray-300 dark:border-[#3a3a3c] focus:border-black dark:focus:border-[#e4e4e4] outline-none transition-all text-sm"
               />
             </div>
             <textarea
@@ -247,7 +246,7 @@ const Contact = () => {
                 setErrorMessage("");
                 setFormState({ ...formState, message: e.target.value });
               }}
-              className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-[#080808] border border-gray-200 dark:border-[#323437] focus:border-black dark:focus:border-[#e4e4e4] outline-none transition-all resize-none text-sm"
+              className="w-full px-4 py-3 rounded-md bg-white dark:bg-[#0a0a0a] border border-gray-300 dark:border-[#3a3a3c] focus:border-black dark:focus:border-[#e4e4e4] outline-none transition-all resize-none text-sm"
             />
             <input
               type="text"
@@ -266,7 +265,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={status === "sending" || status === "success"}
-                className="px-8 py-3 rounded-lg bg-black dark:bg-[#e4e4e4] text-white dark:text-black text-sm font-semibold hover:opacity-90 disabled:opacity-70 flex items-center gap-2 shadow-lg"
+                className="px-8 py-3 rounded-md bg-black dark:bg-[#e4e4e4] text-white dark:text-black text-sm font-semibold hover:opacity-80 transition-opacity disabled:opacity-70 flex items-center gap-2"
               >
                 {status === "idle" && (
                   <>
