@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Caveat, Roboto_Condensed } from "next/font/google";
 import SiteShell from "@/components/layouts/site-shell";
+import { IntroLoader } from "./loading";
 import "./globals.css";
 
 const handwriting = Caveat({
@@ -57,6 +58,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body className="min-h-full flex flex-col">
+        <IntroLoader />
         <SiteShell>{children}</SiteShell>
       </body>
     </html>
