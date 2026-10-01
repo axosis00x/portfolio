@@ -464,22 +464,25 @@ function ScrollHint() {
   return (
     <div className="flex flex-col items-center gap-1 text-gray-500 select-none dark:text-gray-400">
       <svg width="0" height="0" aria-hidden="true">
-        <filter id="underwater-wobble">
+        {/* Hand-drawn "line boil": high-frequency noise displaces the strokes,
+            and the seed hops every few frames so the lines jitter like a doodle. */}
+        <filter id="squiggle" x="-20%" y="-20%" width="140%" height="140%">
           <feTurbulence
             type="fractalNoise"
-            baseFrequency="0.01 0.03"
+            baseFrequency="0.045"
             numOctaves="2"
-            seed="3"
-            result="turbulence"
+            seed="1"
+            result="noise"
           >
             <animate
-              attributeName="baseFrequency"
-              dur="7s"
-              values="0.008 0.025;0.014 0.035;0.008 0.025"
+              attributeName="seed"
+              dur="0.48s"
+              values="1;2;3;4;5;6"
+              calcMode="discrete"
               repeatCount="indefinite"
             />
           </feTurbulence>
-          <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="4" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" />
         </filter>
       </svg>
 
@@ -492,6 +495,7 @@ function ScrollHint() {
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
+        style={{ filter: "url(#squiggle)" }}
         className="self-start ml-4 sm:ml-12"
         aria-hidden="true"
       >
@@ -503,7 +507,7 @@ function ScrollHint() {
         <span
           style={{
             fontFamily: "var(--font-handwriting)",
-            filter: "url(#underwater-wobble)",
+            filter: "url(#squiggle)",
           }}
           className="-rotate-1 text-2xl sm:text-3xl leading-tight text-center"
         >
