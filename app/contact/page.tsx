@@ -99,18 +99,18 @@ const Contact = () => {
       handle: "@axosis00x",
       color: "group-hover:text-black dark:group-hover:text-white",
     },
-    {
-      icon: Linkedin,
-      href: "https://linkedin.com/in/subash-lama-tamang",
-      label: "LinkedIn",
-      handle: "/in/subash-lama-tamang",
-      color: "group-hover:text-[#0077b5]",
-    },
+    // {
+    //   icon: Linkedin,
+    //   href: "https://linkedin.com/in/subash-lama-tamang",
+    //   label: "LinkedIn",
+    //   handle: "/in/subash-lama-tamang",
+    //   color: "group-hover:text-[#0077b5]",
+    // },
     {
       icon: Instagram,
-      href: "https://instagram.com/frgnc.subash",
+      href: "https://instagram.com/axosis00x",
       label: "Instagram",
-      handle: "@frgnc.subash",
+      handle: "@axosis00x",
       color: "group-hover:text-[#E4405F]",
     },
   ];
