@@ -94,9 +94,9 @@ const Contact = () => {
   const SOCIALS = [
     {
       icon: Github,
-      href: "https://github.com/frgnc-subash",
+      href: "https://github.com/axosis00x",
       label: "GitHub",
-      handle: "@frgnc-subash",
+      handle: "@axosis00x",
       color: "group-hover:text-black dark:group-hover:text-white",
     },
     {

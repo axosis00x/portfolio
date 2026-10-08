@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="flex flex-col sm:flex-row-reverse items-center justify-between gap-4 py-8 mt-8 border-t border-gray-200 dark:border-[#323437]">
         <div className="flex gap-6 items-center">
           <a
-            href="https://github.com/frgnc-subash"
+            href="https://github.com/axosis00x"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
