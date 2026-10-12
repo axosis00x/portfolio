@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
       {
         source: "/install",
         destination:
-          "https://raw.githubusercontent.com/axosis00x/nixcraft/main/bootstrap.sh",
+          "https://raw.githubusercontent.com/axosis00x/nixcraft/main/scripts/bootstrap.sh",
         permanent: false,
       },
     ];
