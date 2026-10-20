@@ -414,7 +414,7 @@ function AboutHighlights() {
         <p className="font-mono text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">
           <span className="font-pixel text-black dark:text-white text-lg tracking-wide inline-block"
           >
-            axosis
+            axosis00x
           </span>{" "}
           is my alias I use in the internet.
           <span className="dark:text-amber-400 text-blue-400"> ୧(▲ᴗ▲)ノ </span>
@@ -515,10 +515,10 @@ export default function HomePage() {
         "Frontend Development",
       ],
       sameAs: [
-        "https://github.com/frgnc-subash",
+        "https://github.com/axosis00x",
         "https://linkedin.com/in/subash-lama-tamang",
-        "https://instagram.com/frgnc.subash",
-        "https://facebook.com/frgnc.subash",
+        "https://instagram.com/axosis00x",
+        "https://facebook.com/axosis00x",
       ],
     },
   });
