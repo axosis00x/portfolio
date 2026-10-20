@@ -1,8 +1,11 @@
-const GITHUB_USERNAME = "frgnc-subash";
-const UPSTREAM_URL = `https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}?y=last`;
-const REVALIDATE_SECONDS = 3600;
-
-export const revalidate = 3600;
+const GITHUB_USERNAME = process.env.GITHUB_USERNAME ?? "axosis00x";
+const API_BASE_URL =
+  process.env.GITHUB_CONTRIBUTIONS_API_BASE_URL ??
+  "https://github-contributions-api.jogruber.de/v4";
+const UPSTREAM_URL = `${API_BASE_URL}/${GITHUB_USERNAME}?y=last`;
+const REVALIDATE_SECONDS = Number(
+  process.env.GITHUB_CONTRIBUTIONS_REVALIDATE_SECONDS ?? 3600,
+);
 
 export async function GET() {
   try {
