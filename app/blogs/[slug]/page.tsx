@@ -60,7 +60,7 @@ const BlogPost = () => {
   return (
     <article className="max-w-2xl mx-auto py-8 sm:py-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <Link
-        href="/blog"
+        href="/blogs"
         className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-black dark:hover:text-white transition-colors mb-8 group"
       >
         <ArrowLeft
